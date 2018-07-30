@@ -1,0 +1,19 @@
+@(studentForm : Form[models.Student])
+
+
+<html>
+    <head>
+        <name>Edit a Student Details</name>
+    </head>
+    <body>
+
+        <h1>Edit Student Details</h1>
+        @helper.form(action = routes.StudentController.update()){
+            @helper.inputText(studentForm("Id"))
+            @helper.inputText(studentForm("Name"))
+            @helper.inputText(studentForm("Marks"))
+            <input type="submit" value="Edit Student Detsils">
+        }
+    </body>
+</html>
+

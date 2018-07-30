@@ -1,0 +1,18 @@
+@(student : models.Student)
+
+
+<html>
+    <head>
+        <title>@student.name</title>
+    </head>
+    <body>
+
+        <h2>@student.name</h2>
+        <p>Marks : @student.marks </p>
+
+        <a href ="@routes.StudentController.edit(student.id)">Edit</a>
+        <a href ="@routes.StudentController.destroy(student.id)">Delete</a>
+
+    </body>
+</html>
+

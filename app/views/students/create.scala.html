@@ -1,0 +1,19 @@
+@(studentForm : Form[models.Student])
+
+
+<html>
+    <head>
+        <name>Add a new student</name>
+    </head>
+    <body>
+
+        <h1>Add Student</h1>
+        @helper.form(action = routes.StudentController.save()){
+            @helper.inputText(studentForm("Id"))
+            @helper.inputText(studentForm("Name"))
+            @helper.inputText(studentForm("Marks"))
+            <input type="submit" value="Create Student">
+        }
+    </body>
+</html>
+

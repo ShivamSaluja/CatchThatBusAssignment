@@ -1,0 +1,19 @@
+@(students : Set[models.Student])
+
+<html>
+ <head>
+  <name>All students</name>
+ </head>
+ <body>
+
+ <h1>All students</h1>
+
+ @for(student <- students){
+ <a href="@routes.StudentController.show(student.id)">@student.name</a>
+ <p>Marks : @student.marks</p>
+ }
+
+ <a href="@routes.StudentController.create()">Add Student</a>
+
+ </body>
+</html>
