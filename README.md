@@ -1,7 +1,7 @@
 This module is developed with the help of play-java-starter-example downloaded from www.playframework.com
 
-Folder Ctb-ScreenShorts contains images of the working module.
-
+Folder Ctb-ScreenShorts contains images of the working module. 
+Remove the above folder before importing the project into IDE.
 
 [<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
 
