@@ -14,4 +14,4 @@ GET -  /students/delete/:id
 
 ## MogoDb Connections
 
-Used morphia - The Java Object Document Mapper for MongoDB
+Used morphia - a Java Object Document Mapper for MongoDB.
