@@ -1,13 +1,19 @@
 package models;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.query.Query;
+import services.MongoConfig;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
-
+@Entity(value = "students", noClassnameStored = true)
 public class Student {
 
-
+    @Id
     public Integer id;
     public String name;
     public Integer marks;
@@ -21,29 +27,25 @@ public class Student {
         this.marks = marks;
     }
 
-    private static Set<Student> students;
-
-    static{
-        students = new HashSet<>();
-        students.add(new Student(1, "Shivam", 70 ));
-        students.add(new Student(2, "Rahul", 80 ));
-    }
-
-    public static Set<Student> allStudents(){
-        return students;
+    public static Set<Student> allStudents() {
+        Query<Student> query = MongoConfig.datastore()
+                .createQuery(Student.class);
+        return new HashSet<Student>(query.asList());
     }
 
 
-    public static Student findById(Integer id){
-        return students.stream().filter(aStudent -> aStudent.id.equals(id)).findFirst().get();
+    public static Student findById(Integer id) {
+        return MongoConfig.datastore()
+                .createQuery(Student.class).field("_id").equal(id).asList().get(0);
     }
 
-    public static void add(Student aStudent){
-        students.add(aStudent);
+    public void add() {
+        MongoConfig.datastore().save(this);
     }
 
-    public static Boolean remove(Student aStudent){
-        return students.remove(aStudent);
+    public static Boolean remove(Student aStudent) {
+        return MongoConfig.datastore().delete(aStudent).isUpdateOfExisting();
     }
+
 }
 

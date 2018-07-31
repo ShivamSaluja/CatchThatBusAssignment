@@ -6,6 +6,7 @@ import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import services.MongoConfig;
 import views.html.students.*;
 
 import javax.inject.Inject;
@@ -23,6 +24,7 @@ public class StudentController extends Controller {
         return ok(index.render(students));
     }
 
+
     //Create a Student
     public Result create(){
         Form<Student> studentForm = formFactory.form(Student.class);
@@ -33,7 +35,7 @@ public class StudentController extends Controller {
     public Result save(){
         Form<Student> studentForm = formFactory.form(Student.class).bindFromRequest();
         Student student = studentForm.get();
-        Student.add(student);
+        student.add();
         return redirect(routes.StudentController.index());
     }
 
@@ -44,7 +46,6 @@ public class StudentController extends Controller {
             return notFound("Student Not Found");
         }
         Form<Student> studentForm = formFactory.form(Student.class).fill(student);
-
         return ok(edit.render(studentForm));
     }
 
@@ -60,7 +61,7 @@ public class StudentController extends Controller {
 
         oldStudent.name = student.name;
         oldStudent.marks = student.marks;
-
+        student.add();
         return redirect(routes.StudentController.index());
     }
 
