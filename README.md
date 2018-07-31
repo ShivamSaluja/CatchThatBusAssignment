@@ -1,8 +1,5 @@
 This module is developed with the help of play-java-starter-example downloaded from www.playframework.com
 
-Folder Ctb-ScreenShorts contains images of the working module. 
-Remove the above folder before importing the project into IDE.
-
 End Point :   
 
 Default Port - 9000
