@@ -3,7 +3,8 @@ This module is developed with the help of play-java-starter-example downloaded f
 Folder Ctb-ScreenShorts contains images of the working module. 
 Remove the above folder before importing the project into IDE.
 
-End Point : 
+End Point :   
+
 GET       /students                   
 GET       /students/create             
 GET       /students/:id                
