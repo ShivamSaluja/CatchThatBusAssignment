@@ -5,13 +5,13 @@ Remove the above folder before importing the project into IDE.
 
 End Point :   
 
-GET         /students                   
-GET         /students/create             
-GET         /students/:id                
-GET         /students/edit/:id           
+GET             /students                   
+GET             /students/create             
+GET             /students/:id                
+GET             /students/edit/:id           
 POST        /students/edit               
 POST        /students/create             
-GET         /students/delete/:id        
+GET             /students/delete/:id        
 
 
 [<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
